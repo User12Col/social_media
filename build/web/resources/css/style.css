@@ -1,0 +1,107 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 19, 2023, 9:52:47 AM
+    Author     : HP ADMIN
+*/
+#DropDown{
+    position: relative;
+}
+.navbar{
+    position: relative;
+}
+.d-flex{
+    position: relative;
+}
+.container{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.friend-element{
+    margin: 10px 0px 0px 0px;
+}
+
+
+.search-result{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin: 20px 0px 0px 0px;
+    
+}
+
+
+/* Custom styles for the post container */
+.post-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styles for the user profile picture */
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Custom styles for the like, comment, and share icons */
+.like-comment-share {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Custom styles for the post content */
+.post-content {
+    margin-top: 10px;
+}
+
+.img-fluid{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.text-comment{
+    text-decoration: none;
+}
+
+.comment-section {
+    max-height: 300px; /* Set a maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.btn{
+    margin-right: 10px;
+}
+
+.search-results {
+    border-radius: 8px;
+    top: 100%;
+    width: 70%;
+    background-color: #f5f5f5;
+    position: absolute;
+}
+.search-results ul {
+    list-style: none;
+    padding: 0;
+}
+.search-results li {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
