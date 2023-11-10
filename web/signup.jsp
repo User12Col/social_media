@@ -18,23 +18,23 @@
             <img src="./resources/img/Instagram_logo.png" alt="logo" width="300" height="120">
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Full Name</label></div>
-                <div class="col-6"><input type="text" name="fullname" class="form-control" placeholder="Enter your full name"></br></div>
+                <div class="col-6"><input type="text" id="fullname" name="fullname" class="form-control" placeholder="Enter your full name"></br><small id="fullname-error"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Email address</label></div>
-                <div class="col-6"><input type="email" name="email" class="form-control" placeholder="name@example.com"></br></div>
+                <div class="col-6"><input type="email" id="email" name="email" class="form-control" placeholder="name@example.com"></br><small id="email-error"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">User Name</label></div>
-                <div class="col-6"><input type="text" name="username" class="form-control" placeholder="Enter your user name"></br></div>
+                <div class="col-6"><input type="text" id="username" name="username" class="form-control" placeholder="Enter your user name"></br><small id="username-error"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Bio</label></div>
-                <div class="col-6"><input type="text" name="bio" class="form-control" placeholder="Enter your bio"></br></div>
+                <div class="col-6"><input type="text" id="bio" name="bio" class="form-control" placeholder="Enter your bio"></br><small id="bio-error"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Date of Birth</label></div>
-                <div class="col-6"><input type="date" name="dob" class="form-control"></br></div>
+                <div class="col-6"><input type="date" id="dob" name="dob" class="form-control"></br><small id="dob-error"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Sex</label></div>
@@ -47,21 +47,21 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Password</label></div>
-                <div class="col-6"><input type="password" name="password" class="form-control" placeholder="Enter your password"></br></div>
+                <div class="col-6"><input type="password" id="password" name="password" class="form-control" placeholder="Enter your password"></br><small id="password-error"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Password Again</label></div>
-                <div class="col-6"><input type="password" name="cfpassword" class="form-control" placeholder="Enter your password again"></br></div>
+                <div class="col-6"><input type="password" id="cfpassword" name="cfpassword" class="form-control" placeholder="Enter your password again"></br><small id="cfpassword-error"></small></div>
             </div>
             <div class = "row">
                 <div class="col"><h3>${message}</h3></br></div>
             </div>
             <div class="row">
-                <div class="col"><button type="submit" class="btn btn-primary mb-3" onclick="checkSignUp()">Sign Up</button></div>
+                <div class="col"><button type="submit" class="btn btn-primary mb-3">Sign Up</button></div>
             </div>
         </form>
 
-        <script src="./format.js"></script>
+        <script src="./validate/validateSignUp.js"></script>
         <script>
             // JavaScript code to display the selected image
             const imageInput = document.getElementById("imageInput");
