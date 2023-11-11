@@ -4,6 +4,8 @@
     Author     : HP ADMIN
 --%>
 
+<%@page import="controller.AdvertisementController"%>
+<%@page import="model.Advertisement"%>
 <%@page import="model.Following"%>
 <%@page import="controller.FollowingController"%>
 <%@page import="controller.CommentController"%>
@@ -27,8 +29,18 @@
         
         <div class="row">
         <div class="col-2">
-            <h1>Quang cao</h1>
-            </div>
+            <%
+                AdvertisementController adCtrl = new AdvertisementController();
+                List<Advertisement> listAd = adCtrl.getAll();
+                for(Advertisement ad : listAd){
+                    out.println("<div class=\"post-container align-items-center\">");
+                    out.println("<p class=\"post-content\">" + ad.getDiscription()+ "</p>");
+                    out.println("<img src=\"./resources/img/ad_img/" + ad.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid\" width = \"400\" height = \"400\">");
+                    out.println("</div>");
+                }
+            
+            %>
+        </div>
         <%
             //out.println("<div class=\"row\">");
             out.println("<div class=\"col-8\">");
