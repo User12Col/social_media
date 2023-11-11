@@ -9,6 +9,7 @@ package model;
  * @author HP ADMIN
  */
 public class Following {
+    private int Id;
     private int accID;
     private int followingID;
 

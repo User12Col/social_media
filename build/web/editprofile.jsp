@@ -35,23 +35,23 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Full Name</label></div>
-                <div class="col-6"><% out.print("<input type=\"text\" name=\"fullname\" class=\"form-control\" placeholder=\"Enter your full name\" value = \"" + user.getName() + "\">"); %></br></div>
+                <div class="col-6"><% out.print("<input id=\"fullname\" type=\"text\" name=\"fullname\" class=\"form-control\" placeholder=\"Enter your full name\" value = \"" + user.getName() + "\">"); %></br><small id="fullname-error" class="text-danger"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Email address</label></div>
-                <div class="col-6"><% out.print("<input type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"name@example.com\" value = \""+acc.getEmail()+"\">"); %></br></div>
+                <div class="col-6"><% out.print("<input  id=\"email\" type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"name@example.com\" value = \""+acc.getEmail()+"\">"); %></br><small id="email-error"  class="text-danger"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">User Name</label></div>
-                <div class="col-6"><% out.print("<input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Enter your user name\" value = \""+acc.getUsername()+"\">"); %></br></div>
+                <div class="col-6"><% out.print("<input id=\"username\" type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Enter your user name\" value = \""+acc.getUsername()+"\">"); %></br><small id="username-error"  class="text-danger"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Bio</label></div>
-                <div class="col-6"><% out.print("<input type=\"text\" name=\"bio\" class=\"form-control\" placeholder=\"Enter your bio\" value = \""+acc.getBio()+"\">"); %></br></div>
+                <div class="col-6"><% out.print("<input id=\"bio\" type=\"text\" name=\"bio\" class=\"form-control\" placeholder=\"Enter your bio\" value = \""+acc.getBio()+"\">"); %></br><small id="bio-error"  class="text-danger"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Date of Birth</label></div>
-                <div class="col-6"><% out.print("<input type=\"date\" name=\"dob\" class=\"form-control\" value = \""+user.getDob()+"\">"); %></br></div>
+                <div class="col-6"><% out.print("<input id=\"dob\" type=\"date\" name=\"dob\" class=\"form-control\" value = \""+user.getDob()+"\">"); %></br><small id="dob-error"  class="text-danger"></small></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2"><label class="form-label">Sex</label></div>
@@ -79,6 +79,7 @@
                 <div class="col"><button type="submit" class="btn btn-primary mb-3">Update Profile</button></div>
             </div>
         </form>
+        <script src="./validate/validateEditProfile.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>

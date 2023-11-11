@@ -39,12 +39,13 @@
                         </div>
                     </div>
                     <div class="row text-center">
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <%
                                 Account acc = (Account) session.getAttribute("account");
                                 out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                             %>
                         </div>
+                        <div class="col-md-8"><form method="post" action="LogOutSevlet"><button type="submit">Log out</button></form></div>
                     </div>
                 </div>
             </div>
@@ -61,6 +62,9 @@
                 }
             });
 
+            funtion clearSession(){
+                
+            }
             function searchUser() {
                 var searchValue = document.getElementById("searchInput").value;
                 $.ajax({
@@ -88,7 +92,15 @@
                 ul.innerHTML = "";
                 data.forEach(function (user) {
                     var li = document.createElement("li");
-                    li.innerText = user.username;
+                    var liElement = document.querySelector("li");
+                    var img = document.createElement("img");
+                    var a = document.createElement("a");
+                    //li.innerText = user.username;
+                    img.setAttribute("class", "profile-pic");
+                    img.setAttribute("src", "./resources/img/"+user.image);
+                    a.innerText = user.username;
+                    li.appendChild(img);
+                    li.appendChild(a);
                     ul.appendChild(li);
                 });
             }

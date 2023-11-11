@@ -40,6 +40,10 @@
         <servlet-name>UnFollowServlet</servlet-name>
         <servlet-class>servlet.UnFollowServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOutSevlet</servlet-name>
+        <servlet-class>servlet.LogOutSevlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>UnFollowServlet</servlet-name>
         <url-pattern>/UnFollowServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutSevlet</servlet-name>
+        <url-pattern>/LogOutSevlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
