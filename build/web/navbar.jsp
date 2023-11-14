@@ -34,7 +34,7 @@
                     <div id="formSearch" class="d-flex navbar-nav me-auto mb-2 mb-lg-0" role="search">
                         <input class="form-control me-2 search" id="searchInput" type="search" placeholder="Looking for someone..." aria-label="Search">
                         <button class="btn btn-outline-success btn-search" onclick="searchUser()">Search</button>
-                        <div class="search-results" id="searchResults">
+                        <div class="search-results search-resultstop" id="searchResults">
                             <ul></ul>
                         </div>
                     </div>
