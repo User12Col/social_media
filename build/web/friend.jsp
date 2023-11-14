@@ -24,7 +24,7 @@
             AccountController accCtrl = new AccountController();
             FollowingController followCtrl = new FollowingController();
             List<Account> list = accCtrl.searchAcc(searchValue);
-            out.println("<div class=\"container friend-container\">");
+            out.println("<div class=\"container friend-container margin-header\">");
             if (list.isEmpty()) {
                 out.print("<h1 class=\"container\">Your friend list is empty</h1>");
             } else {

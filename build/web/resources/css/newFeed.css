@@ -130,3 +130,7 @@
 .navbar{
     position: fixed;
 }
+
+.margin-header{
+    margin-top: 90px;
+}

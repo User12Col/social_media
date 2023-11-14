@@ -22,7 +22,7 @@
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
-        <form class="container text-center" method="post" action="UpdateProfileServlet" enctype="multipart/form-data">
+        <form class="container text-center margin-header" method="post" action="UpdateProfileServlet" enctype="multipart/form-data">
             <div class="text-center">
                 <% 
                     UserController userCtrl = new UserController();
