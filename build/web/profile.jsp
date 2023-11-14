@@ -18,6 +18,10 @@
               crossorigin="anonymous">
         <link href="./resources/css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="./resources/css/newFeed.css" rel="stylesheet">
+        <link href="./resources/css/themify-icons/themify-icons.css" rel="stylesheet"/>
+        <link href="./resources/css/profile.css" rel="stylesheet">
+
         <title>Profile</title>
     </head>
 
@@ -34,11 +38,12 @@
             Account acc = accCtrl.getAccountByID(accId);
 
         %>
-        <div class="row">
-            <div class="col-5">
+        <div class="row margin-header">
+            <div class="col-2"></div>
+            <div class="col-8 profile-container">
                 <div class="row">
                     <div class="col-4">
-                        <% out.print("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"rounded mx-auto d-block\" width=\"150\">"); %>
+                        <% out.print("<img class=\" imgfirst-child\" src=\"./resources/img/" + acc.getImage() + "\" alt=\"rounded mx-auto d-block\" width=\"150\">"); %>
                         <h2><% out.print(acc.getUsername()); %></h2>
                     </div>
                     <div class="col-8">
@@ -64,7 +69,7 @@
 
                 </div>
                 <div class="text-center">
-                    <h1>Image</h1>
+                    <h3 class="imagehead">Image</h3>
                     <div class="row row-cols-3">
                         <%  
                             for(Post post: posts){
@@ -80,59 +85,67 @@
                     </div>
                 </div>
             </div>
+            <div class="col-2"></div>
 
-            <div class="col-7">
+        </div>
+        <div class="row">
+
+            <div class="col-2"></div>
+
+            <div class="col-8">
                 <%
                     if (posts.isEmpty()) {
                         out.print("<h1 class=\"container\">No post</h1>");
                     } else {
                         for (Post post : posts) {
-                            out.println("<div class=\"container\">");
+                            out.println("<div class=\"container postcontainer\">");
 
-                            out.println("<div class=\"card-header d-flex justify-content-between align-items-center\">");
-
-                            out.println("<div class=\"col-md-1\">");
-                            out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2\">");
-                            out.println("</div>");
-                            out.println("<div class=\"col-md-11\">");
-                            out.println("<h5 class=\"fw-bold\">" + acc.getUsername() + "</h5>");
-                            out.println("<small class=\"text-muted\">" + post.getDate() + "</small>");
-                            out.println("</div>");
-
-                            out.println("</div>");
-
-                            out.println("<div class=\"row\">");
-                            out.println("<div class=\"col-md-12\">");
-                            out.println("<div class=\"post-container\">");
-                            out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
-                            out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid\" width = \"400\" height = \"400\">");
-                            out.println("</div>");
-                            out.println("</div>");
-                            out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
-                            out.println("</div>");
-
-                            out.println("<div class=\"row\">");
-                            out.println("<div class=\"col-md-12\">");
-                            out.println("<div class=\"d-flex justify-content-between\">");
-                            out.println("<div class=\"like-comment-share\">");
-                            out.println("<i class=\"far fa-thumbs-up\"></i> Like");
-                            out.println("</div>");
-                            out.println("<div class=\"like-comment-share\">");
-                            out.println("<i class=\"far fa-comment-alt\"></i><a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
-                            out.println("</div>");
-                            out.println("<div class=\"like-comment-share\">");
-                            out.println("<i class=\"far fa-share\"></i> Share");
-                            out.println("</div>");
-                            out.println("</div>");
-                            out.println("</div>");
-                            out.println("</div>");
-
-                            out.println("</div>");
+                                out.println("<div class=\"card-header d-flex justify-content-between align-items-center\">");
+            
+                                out.println("<div class=\"col-md-1\">");
+                                out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2 pic\">");
+                                out.println("</div>");
+                                out.println("<div class=\"col-md-10\">");
+                                out.println("<h5 class=\"fw-bold\">" + acc.getUsername() + "</h5>");
+                                out.println("<small class=\"text-muted\">" + post.getDate() + "</small>");
+                                out.println("</div>");
+            
+                                out.println("</div>");
+            
+                                out.println("<div class=\"row\">");
+                                out.println("<div class=\"col-md-12 post-content\">");
+                                out.println("<div class=\"post-container\">");
+                                out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
+                                out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                                out.println("</div>");
+                                out.println("</div>");
+                                out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
+                                out.println("</div>");
+            
+                                out.println("<div class=\"row\">");
+                                out.println("<div class=\"col-md-12\">");
+                                out.println("<div class=\"d-flex justify-content-between\">");
+                                out.println("<div class=\"like-comment-share blueText\">");
+                                out.println("<i class=\"far ti-thumb-up\"></i> Like");
+                                out.println("</div>");
+                                out.println("<div class=\"like-comment-share\">");
+                                out.println("<a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
+                                out.println("</div>");
+                                out.println("<div class=\"like-comment-share blueText\">");
+                                out.println("<i class=\"far ti-sharethis\"></i> Share");
+                                out.println("</div>");
+                                out.println("</div>");
+                                out.println("</div>");
+                                out.println("</div>");
+            
+                                out.println("</div>");
                         }
 
                     }
                 %>
             </div>
+            <div class="col-2"></div>
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

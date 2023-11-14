@@ -1,0 +1,27 @@
+.row{
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-container{
+    background-color:#ffffff;
+    box-shadow: rgb(0 103 90 / 68%) 4px 4px 9px !important;
+    border-radius: 30px;
+    border: none;
+    padding: 40px 40px;
+}
+
+.profile-container img{
+    width: 150px;
+    height: 80px;
+    border-radius: 8px !important;
+}
+.imgfirst-child{
+    width: 200px !important;
+    height: 150px !important;
+}
+.imagehead{
+    padding: 6px;
+    color: #ffffff;
+    background-color: #0cd2b6;
+    border-radius: 8px;
+}
