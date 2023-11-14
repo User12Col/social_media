@@ -1,0 +1,38 @@
+.ContainerLogin{
+    display: block;
+    border: 2px solid rgb(108, 108, 108);
+    border-radius: 25px;
+    margin: auto;
+    width: 700px;
+    padding: 20px 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.TitleInsta{
+    text-align: center;
+}
+
+.form-label-1{
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.btn-login{
+    display: inline-block;
+    width: 100px;
+    background-color: #59c3ff;
+    border: none;
+}
+
+.logobot{
+    margin: 50px auto;
+    width: 500px;
+    height: 500px;
+    display: inline-block;
+}
+.contailogobot{
+    text-align: center;
+
+}
+.container input{
+    border-radius: 20px;
+}

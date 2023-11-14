@@ -31,9 +31,9 @@
                             <a class="nav-link" href="editprofile.jsp">Edit Profile</a>
                         </li>
                     </ul>
-                    <div id="formSearch" class="d-flex" role="search">
-                        <input class="form-control me-2" id="searchInput" type="search" placeholder="Looking for someone..." aria-label="Search">
-                        <button class="btn btn-outline-success" onclick="searchUser()">Search</button>
+                    <div id="formSearch" class="d-flex navbar-nav me-auto mb-2 mb-lg-0" role="search">
+                        <input class="form-control me-2 search" id="searchInput" type="search" placeholder="Looking for someone..." aria-label="Search">
+                        <button class="btn btn-outline-success btn-search" onclick="searchUser()">Search</button>
                         <div class="search-results" id="searchResults">
                             <ul></ul>
                         </div>
@@ -45,7 +45,7 @@
                                 out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                             %>
                         </div>
-                        <div class="col-md-8"><form method="post" action="LogOutSevlet"><button type="submit">Log out</button></form></div>
+                        <div class="col-md-8"><form method="post" action="LogOutSevlet"><button class="btn btn-logout" type="submit">Log out</button></form></div>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,8 @@
 
         <script>
             var isOn = false;
-            
+            var searchResults = document.getElementById("searchResults");
+            searchResults.style.display = "none";
             // Bắt sự kiện ấn phím Enter trên trường nhập liệu
             document.getElementById("searchInput").addEventListener("keyup", function (event) {
                 if (event.key === "Enter") {
@@ -62,9 +63,6 @@
                 }
             });
 
-            funtion clearSession(){
-                
-            }
             function searchUser() {
                 var searchValue = document.getElementById("searchInput").value;
                 $.ajax({
@@ -79,7 +77,7 @@
 
             function displayResults(data) {
                 var searchResults = document.getElementById("searchResults");
-                if (isOn) {
+                if (!isOn) {
                     searchResults.style.display = "block";
                     isOn = !isOn;
 
