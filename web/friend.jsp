@@ -10,7 +10,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="./resources/css/style.css" rel="stylesheet">
-        <title>con cac 1</title>
+        <link href="./resources/css/newFeed.css" rel="stylesheet">
+        <link href="./resources/css/themify-icons/themify-icons.css" rel="stylesheet"/>
+        <link href="./resources/css/Search.css" rel="stylesheet"/>
+        <title>Friend</title>
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
@@ -21,25 +24,25 @@
             AccountController accCtrl = new AccountController();
             FollowingController followCtrl = new FollowingController();
             List<Account> list = accCtrl.searchAcc(searchValue);
-            out.println("<div class=\"container\">");
+            out.println("<div class=\"container friend-container\">");
             if (list.isEmpty()) {
                 out.print("<h1 class=\"container\">Your friend list is empty</h1>");
             } else {
                 for (Account account : list) {
                     int followID = account.getAccID();
                     out.println("<div class=\"search-result\">");
-                    out.println("<div class=\"row\">");
+                    out.println("<div class=\"row item-search\">");
                     out.println("<div class=\"col-md-1\">");
                     out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                     out.println("</div>");
-                    out.println("<div class=\"col-md-9\">");
+                    out.println("<div class=\"col-md-8\">");
                     out.println("<h4><a href=\"profile.jsp?accID="+account.getAccID()+"\">" + account.getUsername() + "</a></h4>");
                     out.println("</div>");
-                    out.println("<div class=\"col-md-1\">");
+                    out.println("<div class=\"col-md-2\">");
                     if (followCtrl.isFollow(acc.getAccID(), followID)) {
-                        out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Unfollow</button>");
+                        out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Unfollow</button>");
                     } else {
-                        out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Follow</button>");
+                        out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Follow</button>");
                     }
                     out.println("</div>");
                     out.println("</div>");

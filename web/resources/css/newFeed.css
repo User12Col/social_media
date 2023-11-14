@@ -1,0 +1,114 @@
+.nav-item :hover{
+    background: #5de8fd;
+    border-radius: 4px;
+    color: #fff !important;
+}
+.nav-item{
+    margin-left: 6px;
+    height: 100%;
+}
+.search{
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px;
+}
+.btn-search{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px;
+    background-color: #43ffbe;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px
+}
+.btn-search :hover{
+    background-color: #00ffa6 !important;
+}
+.btn-logout{
+    border: none;
+    background: gainsboro;
+    border-radius: 20px;
+    padding: 8px 12px;
+    margin: 6px 0;
+    color: #fff;
+}
+
+.btn-logout:hover{
+    background: #ffd35b!important;
+}
+
+.quangcao{
+    margin: 40px 0 0 4px;
+    width: 18%;
+}
+.quangcao .post-container{
+    background-color: #adf4ff;
+    color: #969696;
+    height: 275px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow:rgb(0 96 107 / 79%) 3px 3px 2.6px;;
+}
+.quangcao .post-container p{
+    height: 10%;
+}
+.quangcao .post-container img{
+    height: 80%;
+    border-radius: 6px;
+}
+.backGround{
+    background-color: #ffffff;
+}
+.main-col{
+    border-left: 3px solid #ededed;
+    border-right:3px solid #ededed;
+    background-color: #ffffff;
+    width: 62%;
+}
+.post-content{
+    padding: 0;
+}
+.post-content .post-container{
+    border: none !important;
+    box-shadow: none !important;
+    padding-top: 0;
+}
+.postimage{
+
+    border-radius: 8px !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+.postcontainer{
+    width: 70% !important;
+    background-color:#ffffff;
+    box-shadow: rgb(0 103 90 / 68%) 4px 4px 9px !important;
+    border-radius: 30px;
+    border: none;
+}
+.pic{
+
+    margin-left: 20px !important;
+}
+.blueText{
+    color: #43aaff!important;
+}
+.Friend{
+    background-color: #ffffff;
+    border: 1px solid #adf4ff;
+    border-radius: 40px;
+    margin: 40px 10px 0 10px;
+    padding: 20px;
+    min-height: 600px;
+}
+.friend-element{
+    border-top: 1px solid #adf4ff;
+    border-bottom: 1px solid #adf4ff;
+}
+.Friend-header{
+    text-align: center;
+    font-size: 40px;
+}

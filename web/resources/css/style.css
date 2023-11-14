@@ -6,6 +6,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : Oct 19, 2023, 9:52:47 AM
     Author     : HP ADMIN
 */
+
+body {
+    background-color: #ffffff; /* Instagram's white background color */
+}
+.container {
+    max-width: 600px;
+}
+.form-control {
+    background-color: #f0f0f0; /* Light gray background color for input fields */
+}
+.btn-primary {
+    background-color: #3897f0; /* Instagram's primary button color */
+}
+.btn-primary:hover {
+    background-color: #2684f1; /* Darker shade on hover */
+}
 #DropDown{
     position: relative;
 }

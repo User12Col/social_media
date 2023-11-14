@@ -22,13 +22,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link href="./resources/css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link href="./resources/css/newFeed.css" rel="stylesheet">
+        <link href="./resources/css/themify-icons/themify-icons.css" rel="stylesheet"/>
         <title>New Feed</title>
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
         
-        <div class="row">
-        <div class="col-2">
+        <div class="row backGround">
+        <div class="col-2 quangcao">
+            <h4 class="Friend-header"><i class="ti-shopping-cart-full"></i></h4>
             <%
                 AdvertisementController adCtrl = new AdvertisementController();
                 List<Advertisement> listAd = adCtrl.getAll();
@@ -43,7 +46,7 @@
         </div>
         <%
             //out.println("<div class=\"row\">");
-            out.println("<div class=\"col-8\">");
+            out.println("<div class=\"col-8 main-col\">");
             Account acc = (Account) session.getAttribute("account");
             PostController postCtrl = new PostController();
             AccountController accCtrl = new AccountController();
@@ -54,14 +57,14 @@
                 out.print("<h1 class=\"container\">No post in your account</h1>");
             } else {
                 for (Post post : posts) {
-                    out.println("<div class=\"container\">");
+                    out.println("<div class=\"container postcontainer\">");
 
                     out.println("<div class=\"card-header d-flex justify-content-between align-items-center\">");
 
                     out.println("<div class=\"col-md-1\">");
-                    out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2\">");
+                    out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2 pic\">");
                     out.println("</div>");
-                    out.println("<div class=\"col-md-11\">");
+                    out.println("<div class=\"col-md-10\">");
                     out.println("<h5 class=\"fw-bold\">" + acc.getUsername() + "</h5>");
                     out.println("<small class=\"text-muted\">" + post.getDate() + "</small>");
                     out.println("</div>");
@@ -69,10 +72,10 @@
                     out.println("</div>");
 
                     out.println("<div class=\"row\">");
-                    out.println("<div class=\"col-md-12\">");
+                    out.println("<div class=\"col-md-12 post-content\">");
                     out.println("<div class=\"post-container\">");
                     out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
-                    out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid\" width = \"400\" height = \"400\">");
+                    out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
                     out.println("</div>");
                     out.println("</div>");
                     out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
@@ -81,14 +84,14 @@
                     out.println("<div class=\"row\">");
                     out.println("<div class=\"col-md-12\">");
                     out.println("<div class=\"d-flex justify-content-between\">");
-                    out.println("<div class=\"like-comment-share\">");
-                    out.println("<i class=\"far fa-thumbs-up\"></i> Like");
+                    out.println("<div class=\"like-comment-share blueText\">");
+                    out.println("<i class=\"far ti-thumb-up\"></i> Like");
                     out.println("</div>");
                     out.println("<div class=\"like-comment-share\">");
-                    out.println("<i class=\"far fa-comment-alt\"></i><a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
+                    out.println("<a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
                     out.println("</div>");
-                    out.println("<div class=\"like-comment-share\">");
-                    out.println("<i class=\"far fa-share\"></i> Share");
+                    out.println("<div class=\"like-comment-share blueText\">");
+                    out.println("<i class=\"far ti-sharethis\"></i> Share");
                     out.println("</div>");
                     out.println("</div>");
                     out.println("</div>");
@@ -101,14 +104,14 @@
 
             for (Post post : friendPosts) {
                 Account account = accCtrl.getAccountByID(post.getAccID());
-                out.println("<div class=\"container\">");
+                out.println("<div class=\"container postcontainer\">");
 
                 out.println("<div class=\"card-header d-flex justify-content-between align-items-center\">");
 
                 out.println("<div class=\"col-md-1\">");
-                out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2\">");
+                out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2 pic\">");
                 out.println("</div>");
-                out.println("<div class=\"col-md-11\">");
+                out.println("<div class=\"col-md-10\">");
                 out.println("<h5 class=\"fw-bold\">" + account.getUsername() + "</h5>");
                 out.println("<small class=\"text-muted\">" + post.getDate() + "</small>");
                 out.println("</div>");
@@ -116,10 +119,10 @@
                 out.println("</div>");
 
                 out.println("<div class=\"row\">");
-                out.println("<div class=\"col-md-12\">");
+                out.println("<div class=\"col-md-12 post-content\">");
                 out.println("<div class=\"post-container\">");
                 out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
-                out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid\" width = \"400\" height = \"400\">");
+                out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
                 out.println("</div>");
                 out.println("</div>");
                 out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
@@ -128,14 +131,14 @@
                 out.println("<div class=\"row\">");
                 out.println("<div class=\"col-md-12\">");
                 out.println("<div class=\"d-flex justify-content-between\">");
-                out.println("<div class=\"like-comment-share\">");
-                out.println("<i class=\"far fa-thumbs-up\"></i> Like");
+                out.println("<div class=\"like-comment-share blueText\">");
+                out.println("<i class=\"ti-thumb-up blueText\"></i> Like");
                 out.println("</div>");
                 out.println("<div class=\"like-comment-share\">");
                 out.println("<i class=\"far fa-comment-alt\"></i><a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
                 out.println("</div>");
-                out.println("<div class=\"like-comment-share\">");
-                out.println("<i class=\"far fa-share\"></i> Share");
+                out.println("<div class=\"like-comment-share blueText\">");
+                out.println("<i class=\"ti-sharethis blueText\"></i> Share");
                 out.println("</div>");
                 out.println("</div>");
                 out.println("</div>");
@@ -145,7 +148,8 @@
             }
             out.println("</div>");
             out.println("<div class=\"col-2\">");
-            out.println("<h4>Friend List</h4>");
+            out.println("<div class=\"Friend\">");
+            out.println("<h4 class=\"Friend-header\"><i class=\"ti-stamp blueText\"></i></h4>");
 
             FollowingController floCtrl = new FollowingController();
             List<Following> list = floCtrl.getFollowing(acc.getAccID());
@@ -168,14 +172,13 @@
             }
 
             out.println("</div>");
-            //out.println("</div>");
+            out.println("</div>");
 
         %>
 
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 
     </body>
