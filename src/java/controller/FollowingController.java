@@ -33,6 +33,24 @@ public class FollowingController {
         return null;
     }
     
+    public List<Following> getFollower(int followingID){
+        try {
+            List<Following> list = new ArrayList<>();
+            String sql = "select * from FOLLOWING where FollowingID = "+followingID;
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                int accID = rs.getInt("AccID");
+                Following following = new Following(accID, followingID);
+                list.add(following);
+            }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(FollowingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public boolean isFollow(int accID, int followID){
         try {
             String sql = "select * from FOLLOWING where AccID = "+accID+" and FollowingID = "+followID;

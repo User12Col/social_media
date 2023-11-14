@@ -33,7 +33,7 @@
                     out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                     out.println("</div>");
                     out.println("<div class=\"col-md-9\">");
-                    out.println("<h4>" + account.getUsername() + "</h4>");
+                    out.println("<h4><a href=\"profile.jsp?accID="+account.getAccID()+"\">" + account.getUsername() + "</a></h4>");
                     out.println("</div>");
                     out.println("<div class=\"col-md-1\">");
                     if (followCtrl.isFollow(acc.getAccID(), followID)) {

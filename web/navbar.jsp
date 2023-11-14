@@ -61,10 +61,7 @@
                     window.location.href = "FriendServlet?data="+inputData;
                 }
             });
-
-            funtion clearSession(){
-                
-            }
+            
             function searchUser() {
                 var searchValue = document.getElementById("searchInput").value;
                 $.ajax({
@@ -98,6 +95,7 @@
                     //li.innerText = user.username;
                     img.setAttribute("class", "profile-pic");
                     img.setAttribute("src", "./resources/img/"+user.image);
+                    a.setAttribute("href","profile.jsp?accID="+user.accID);
                     a.innerText = user.username;
                     li.appendChild(img);
                     li.appendChild(a);
