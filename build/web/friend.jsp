@@ -17,7 +17,13 @@
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
-
+        <%
+            if (session.getAttribute("account") == null) {
+                out.print("<h1 class=\"title-session\">Please login</h1>");
+                return;
+            }
+        %>
+        
         <%
             Account acc = (Account) session.getAttribute("account");
             String searchValue = request.getParameter("data");

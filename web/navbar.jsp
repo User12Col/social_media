@@ -42,10 +42,16 @@
                         <div class="col-md-4">
                             <%
                                 Account acc = (Account) session.getAttribute("account");
-                                out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
+                                if(acc == null){
+                                    
+                                } else{
+                                    out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
+                                    out.print("</div>");
+                                    out.print("<div class=\"col-md-8\"><form method=\"post\" action=\"LogOutSevlet\"><button class=\"btn btn-logout\" type=\"submit\">Log out</button></form></div>");
+                                }
                             %>
-                        </div>
-                        <div class="col-md-8"><form method="post" action="LogOutSevlet"><button class="btn btn-logout" type="submit">Log out</button></form></div>
+                        
+                        
                     </div>
                 </div>
             </div>

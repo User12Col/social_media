@@ -23,7 +23,8 @@ public class SearchServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+        resp.setContentType("text/html;charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
         String searchValue = req.getParameter("searchValue");
         AccountController accCtrl = new AccountController();
         List<Account> accounts = accCtrl.searchAcc(searchValue);
@@ -32,10 +33,10 @@ public class SearchServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(usersToJson(accounts));
     }
-    
+
     private String usersToJson(List<Account> accounts) {
         Gson gson = new Gson();
         return gson.toJson(accounts);
     }
-    
+
 }

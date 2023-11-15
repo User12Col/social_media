@@ -24,6 +24,9 @@ public class CommentServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //int postID = Integer.parseInt(request.getParameter("postID"));
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("account");
         int postID = Integer.parseInt(String.valueOf(session.getAttribute("postID")));

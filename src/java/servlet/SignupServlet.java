@@ -31,6 +31,9 @@ public class SignupServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
         AccountController accCtrl = new AccountController();
         UserController userCtrl = new UserController();
 
@@ -46,7 +49,7 @@ public class SignupServlet extends HttpServlet {
         String cfpassword = request.getParameter("cfpassword");
         String username = request.getParameter("username");
         String image = "";
-        
+
         int userID = userCtrl.getUserID(fullName, dob, sex);
         Account acc = new Account(0, username, password, bio, email, image, userID);
         boolean addAcc = accCtrl.addAcc(acc);

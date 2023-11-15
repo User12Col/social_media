@@ -30,6 +30,9 @@ public class PostServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        
         PostController postCtrl = new PostController();
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("account");
