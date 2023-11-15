@@ -37,36 +37,41 @@ public class SignupServlet extends HttpServlet {
         AccountController accCtrl = new AccountController();
         UserController userCtrl = new UserController();
 
-        String fullName = request.getParameter("fullname");
-        String dob = request.getParameter("dob");
-        String sex = request.getParameter("sex");
-        User user = new User(0, fullName, dob, sex);
-        boolean addUser = userCtrl.addUser(user);
-
         String email = request.getParameter("email");
-        String bio = request.getParameter("bio");
-        String password = request.getParameter("password");
-        String cfpassword = request.getParameter("cfpassword");
-        String username = request.getParameter("username");
-        String image = "";
+        if (accCtrl.checkEmail(email)) {
+            request.setAttribute("message", "Your email already exist");
+            request.getRequestDispatcher("/signup.jsp").forward(request, response);
+        } else {
+            String fullName = request.getParameter("fullname");
+            String dob = request.getParameter("dob");
+            String sex = request.getParameter("sex");
+            User user = new User(0, fullName, dob, sex);
+            boolean addUser = userCtrl.addUser(user);
 
-        int userID = userCtrl.getUserID(fullName, dob, sex);
-        Account acc = new Account(0, username, password, bio, email, image, userID);
-        boolean addAcc = accCtrl.addAcc(acc);
+            String bio = request.getParameter("bio");
+            String password = request.getParameter("password");
+            String cfpassword = request.getParameter("cfpassword");
+            String username = request.getParameter("username");
+            String image = "";
 
-        if (password.equals(cfpassword)) {
-            if (addUser && addAcc) {
-                Account account = accCtrl.getAccount(email, password);
-                HttpSession session = request.getSession(true);
-                session.setAttribute("account", account);
-                request.getRequestDispatcher("/avatar.jsp").forward(request, response);
+            int userID = userCtrl.getUserID(fullName, dob, sex);
+            Account acc = new Account(0, username, password, bio, email, image, userID);
+            boolean addAcc = accCtrl.addAcc(acc);
+
+            if (password.equals(cfpassword)) {
+                if (addUser && addAcc) {
+                    Account account = accCtrl.getAccount(email, password);
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("account", account);
+                    request.getRequestDispatcher("/avatar.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("message", "Fail to Sign up");
+                    request.getRequestDispatcher("/signup.jsp").forward(request, response);
+                }
             } else {
-                request.setAttribute("message", "Fail to Sign up");
+                request.setAttribute("message", "Your password doesnt match");
                 request.getRequestDispatcher("/signup.jsp").forward(request, response);
             }
-        } else {
-            request.setAttribute("message", "Your password doesnt match");
-            request.getRequestDispatcher("/signup.jsp").forward(request, response);
         }
 
     }

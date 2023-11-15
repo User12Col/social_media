@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ChuongTrinh/OOP/SocialMedia/web/index.jsp</file>
+            <file>file:/D:/TaiLieu/GitTRee/src/java/servlet/PostServlet.java</file>
+            <file>file:/D:/TaiLieu/GitTRee/web/avatar.jsp</file>
+            <file>file:/D:/TaiLieu/GitTRee/src/java/servlet/UpdateProfileServlet.java</file>
+            <file>file:/D:/TaiLieu/GitTRee/src/java/servlet/AvatarServlet.java</file>
         </group>
     </open-files>
 </project-private>

@@ -43,7 +43,7 @@
                             <%
                                 Account acc = (Account) session.getAttribute("account");
                                 if(acc == null){
-                                    
+                                    out.print("<div class=\"col-md-8\"><a class=\"btn btn-logout\" href=\"index.jsp\">Login</a></div>");
                                 } else{
                                     out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                                     out.print("</div>");
