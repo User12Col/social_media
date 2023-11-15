@@ -17,7 +17,12 @@
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
-
+        <%
+            if (session.getAttribute("account") == null) {
+                out.print("<h1 class=\"title-session\">Please login</h1>");
+                return;
+            }
+        %>
         <form class="container" action="PostServlet" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-1">

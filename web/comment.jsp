@@ -26,6 +26,12 @@
     </head>
     <body>
         <jsp:include page="navbar.jsp"/>
+        <%
+            if (session.getAttribute("account") == null) {
+                out.print("<h1 class=\"title-session\">Please login</h1>");
+                return;
+            }
+        %>
 
         <div class="container margin-header postcontainer">
             <!-- Post Section -->
@@ -69,21 +75,21 @@
                     <%
                         CommentController cmtCtrl = new CommentController();
                         List<Comment> cmts = cmtCtrl.getCommentOfPost(postID);
-                        if(cmts.isEmpty()){
+                        if (cmts.isEmpty()) {
                             out.print("<h1>No comment in this post</h1>");
-                        } else{
-                            for(Comment cmt : cmts){
+                        } else {
+                            for (Comment cmt : cmts) {
                                 Account accCmt = accCtrl.getAccountByID(cmt.getAccID());
                                 out.print("<div class=\"media mb-3 media-container\">");
                                 out.print("<img src=\"./resources/img/"+accCmt.getImage()+"\" alt=\"Profile Picture\" class=\"profile-pic me-2\">");
                                 out.print("<span class=\"fw-bold\">"+accCmt.getUsername()+"</span>");
                                 out.print("<div class=\"media-body\">");
-                                out.print("<p>"+cmt.getContent()+"</p>");
+                                out.print("<p>" + cmt.getContent() + "</p>");
                                 out.print("</div>");
                                 out.print("</div>");
                             }
                         }
-                    
+
                     %>
                 </div>
             </div>
