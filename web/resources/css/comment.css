@@ -1,0 +1,12 @@
+.postcontainer{
+    width: 100% !important;
+}
+.contentcomment{
+    border: none;
+}
+.media-container{
+    border-bottom: 1px solid #bfbfbf;
+}
+.media-container p{
+    margin-left: 60px;
+}
