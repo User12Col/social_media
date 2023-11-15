@@ -6,9 +6,11 @@ package servlet;
 
 import controller.AccountController;
 import controller.UserController;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import model.Account;
 import model.User;
+import storage.StoreUploadImage;
 
 /**
  *
@@ -47,27 +50,29 @@ public class UpdateProfileServlet extends HttpServlet {
         String image = "";
         Part file = request.getPart("image");
         String imageFile = file.getSubmittedFileName();
-        if(imageFile.isEmpty()){
+        if (imageFile.isEmpty()) {
             image = account.getImage();
-        } else{
+        } else {
             image = imageFile;
-            String uploadPath = "D:/ChuongTrinh/OOP/SocialMedia/web/resources/img/"+imageFile;
-            FileOutputStream fos = new FileOutputStream(uploadPath);
-            InputStream is = file.getInputStream();
-            byte[] data = new byte[is.available()];
-            is.read(data);
-            fos.write(data);
-            fos.close();
+            String uploadPath = getServletContext().getRealPath("/resources/img/") + imageFile;
+            /*FileOutputStream fos = new FileOutputStream(uploadPath);
+        InputStream is = file.getInputStream();
+        byte[] data = new byte[is.available()];
+        is.read(data);
+        fos.write(data);
+        fos.close();*/
+            StoreUploadImage uploadImg = new StoreUploadImage();
+            uploadImg.StoreImage(file, imageFile, uploadPath);
         }
-        
+
         int userID = account.getUserID();
         Account acc = new Account(account.getAccID(), username, "", bio, email, image, userID);
-        if(userCtrl.updateUser(user) && accCtrl.updateAcc(acc)){
+        if (userCtrl.updateUser(user) && accCtrl.updateAcc(acc)) {
             Account newAcc = accCtrl.getAccountByID(account.getAccID());
             session.setAttribute("account", acc);
             request.setAttribute("message", "Update Success");
             request.getRequestDispatcher("/editprofile.jsp").forward(request, response);
-        } else{
+        } else {
             request.setAttribute("message", "Update Fail");
             request.getRequestDispatcher("/editprofile.jsp").forward(request, response);
         }
@@ -83,5 +88,4 @@ public class UpdateProfileServlet extends HttpServlet {
         processRequest(req, resp);
     }
 
-    
 }

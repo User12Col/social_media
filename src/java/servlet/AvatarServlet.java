@@ -5,9 +5,11 @@
 package servlet;
 
 import controller.AccountController;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import model.Account;
+import storage.StoreUploadImage;
 
 /**
  *
@@ -29,30 +32,32 @@ public class AvatarServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Account acc = (Account)session.getAttribute("account");
+        Account acc = (Account) session.getAttribute("account");
         int accID = acc.getAccID();
         //
         Part file = request.getPart("image");
         String imageFile = file.getSubmittedFileName();
-        String uploadPath = "D:/ChuongTrinh/OOP/SocialMedia/web/resources/img/"+imageFile;
-        FileOutputStream fos = new FileOutputStream(uploadPath);
+        String uploadPath = getServletContext().getRealPath("/resources/img/") + imageFile;
+        /*FileOutputStream fos = new FileOutputStream(uploadPath);
         InputStream is = file.getInputStream();
         byte[] data = new byte[is.available()];
         is.read(data);
         fos.write(data);
-        fos.close();
-        
+        fos.close();*/
+        StoreUploadImage uploadImg = new StoreUploadImage();
+        uploadImg.StoreImage(file, imageFile, uploadPath);
+
         AccountController accCtrl = new AccountController();
-        
-        if(accCtrl.updateImg(imageFile, accID)){
+
+        if (accCtrl.updateImg(imageFile, accID)) {
             Account account = accCtrl.getAccount(acc.getEmail(), acc.getPassword());
             session.setAttribute("account", account);
             request.getRequestDispatcher("/newfeed.jsp").forward(request, response);
-        } else{
+        } else {
             request.setAttribute("message", "Fail to set your avatar, try again");
             request.getRequestDispatcher("/avatar.jsp").forward(request, response);
         }
-        
+
     }
 
     @Override
@@ -65,5 +70,4 @@ public class AvatarServlet extends HttpServlet {
         processRequest(req, resp);
     }
 
-    
 }

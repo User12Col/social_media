@@ -90,6 +90,22 @@
                 <div class="col"><button type="submit" class="btn btn-primary mb-3 btn-search">Update Profile</button></div>
             </div>
         </form>
+
+        <script>
+            // JavaScript code to display the selected image
+            const imageInput = document.getElementById("imageInput");
+            const imageDisplay = document.getElementById("imageDisplay");
+
+            imageInput.addEventListener("change", function () {
+                if (imageInput.files && imageInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        imageDisplay.src = e.target.result;
+                    };
+                    reader.readAsDataURL(imageInput.files[0]);
+                }
+            });
+        </script>
         <script src="./validate/validateEditProfile.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
