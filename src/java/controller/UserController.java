@@ -20,7 +20,7 @@ public class UserController {
 
     public int getUserID(String name, String dob, String sex){
         try {
-            String sql = "select * from dbo.[USER] where Name = '"+name+"' and DoB = '"+dob+"' and Sex = '"+sex+"'";
+            String sql = "select * from dbo.[USER] where Name = N'"+name+"' and DoB = '"+dob+"' and Sex = '"+sex+"'";
             Statement stm = con.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while(rs.next()){
