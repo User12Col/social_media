@@ -60,7 +60,11 @@
                 <div class="card-body">
                     <%
                         out.print("<p class=\"card-text\">" + post.getCaption() + "</p>");
-                        out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                        if(post.getImage().isEmpty()){
+                            
+                        } else{
+                            out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                        }
                     %>
                 </div>
             </div>

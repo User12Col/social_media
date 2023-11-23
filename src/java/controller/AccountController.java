@@ -28,10 +28,10 @@ public class AccountController {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 acc.setUserID(rs.getInt("UserID"));
-                acc.setUsername(rs.getString("UserName"));
+                acc.setUsername(rs.getNString("UserName"));
                 acc.setPassword(rs.getString("Password"));
                 acc.setEmail(rs.getString("Email"));
-                acc.setBio(rs.getString("Bio"));
+                acc.setBio(rs.getNString("Bio"));
                 acc.setAccID(rs.getInt("AccID"));
                 acc.setImage(rs.getString("Image"));
             }
@@ -50,10 +50,10 @@ public class AccountController {
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 acc.setUserID(rs.getInt("UserID"));
-                acc.setUsername(rs.getString("UserName"));
+                acc.setUsername(rs.getNString("UserName"));
                 acc.setPassword(rs.getString("Password"));
                 acc.setEmail(rs.getString("Email"));
-                acc.setBio(rs.getString("Bio"));
+                acc.setBio(rs.getNString("Bio"));
                 acc.setAccID(rs.getInt("AccID"));
                 acc.setImage(rs.getString("Image"));
             }
@@ -155,16 +155,16 @@ public class AccountController {
     public List<Account> searchAcc(String username) {
         try {
             List<Account> accounts = new ArrayList<>();
-            String sql = "select * from ACCOUNT where UserName LIKE '%" + username + "%'";
+            String sql = "select * from ACCOUNT where UserName LIKE N'%" + username + "%'";
             Statement stm = con.createStatement();
             ResultSet rs = stm.executeQuery(sql);
             while (rs.next()) {
                 Account acc = new Account();
                 acc.setUserID(rs.getInt("UserID"));
-                acc.setUsername(rs.getString("UserName"));
+                acc.setUsername(rs.getNString("UserName"));
                 acc.setPassword(rs.getString("Password"));
                 acc.setEmail(rs.getString("Email"));
-                acc.setBio(rs.getString("Bio"));
+                acc.setBio(rs.getNString("Bio"));
                 acc.setAccID(rs.getInt("AccID"));
                 acc.setImage(rs.getString("Image"));
                 accounts.add(acc);

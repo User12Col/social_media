@@ -58,7 +58,10 @@
                 List<Post> posts = postCtrl.getPosts(acc.getAccID());
                 List<Post> friendPosts = postCtrl.getPostsFriend(acc.getAccID());
                 if (posts.isEmpty()) {
+                    //out.print("<div class=\"container\">");
+                    out.print("<img class=\"text-center\" src =\"./resources/img/nopost.png\" width = \"800\" height = \"150\">");
                     out.print("<h1 class=\"container\">No post in your account</h1>");
+                    //out.print("</div>");
                 } else {
                     for (Post post : posts) {
                         out.println("<div class=\"container postcontainer\">");
@@ -79,7 +82,11 @@
                         out.println("<div class=\"col-md-12 post-content\">");
                         out.println("<div class=\"post-container\">");
                         out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
-                        out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                        if(post.getImage().isEmpty()){
+                            
+                        } else{
+                            out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                        }
                         out.println("</div>");
                         out.println("</div>");
                         out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
@@ -158,7 +165,7 @@
                 FollowingController floCtrl = new FollowingController();
                 List<Following> list = floCtrl.getFollowing(acc.getAccID());
                 if (list.isEmpty()) {
-                    out.print("<h1 class=\"container\">Your friend list is empty</h1>");
+                    //out.print("<p class=\"container\">No friend</p>");
                 } else {
                     for (Following fol : list) {
                         Account friend = accCtrl.getAccountByID(fol.getFollowingID());

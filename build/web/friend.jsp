@@ -32,7 +32,8 @@
             List<Account> list = accCtrl.searchAcc(searchValue);
             out.println("<div class=\"container friend-container margin-header\">");
             if (list.isEmpty()) {
-                out.print("<h1 class=\"container\">Your friend list is empty</h1>");
+                out.print("<img class=\"text-center\" src =\"./resources/img/nopost.png\" width = \"100%\" height = \"150\">");
+                out.print("<h3 class=\"container text-center\">No result for '"+searchValue+ "'</h3>");
             } else {
                 for (Account account : list) {
                     int followID = account.getAccID();
