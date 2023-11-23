@@ -13,15 +13,25 @@ public class Comment {
     private String content;
     private int postID;
     private int accID;
+    private String date;
 
     public Comment() {
     }
 
-    public Comment(int cmtID, String content, int postID, int accID) {
+    public Comment(int cmtID, String content, int postID, int accID, String date) {
         this.cmtID = cmtID;
         this.content = content;
         this.postID = postID;
         this.accID = accID;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getCmtID() {

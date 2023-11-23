@@ -37,23 +37,25 @@
             } else {
                 for (Account account : list) {
                     int followID = account.getAccID();
-                    out.println("<div class=\"search-result\">");
-                    out.println("<div class=\"row item-search\">");
-                    out.println("<div class=\"col-md-1\">");
-                    out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
-                    out.println("</div>");
-                    out.println("<div class=\"col-md-8\">");
-                    out.println("<h4><a href=\"profile.jsp?accID="+account.getAccID()+"\">" + account.getUsername() + "</a></h4>");
-                    out.println("</div>");
-                    out.println("<div class=\"col-md-2\">");
-                    if (followCtrl.isFollow(acc.getAccID(), followID)) {
-                        out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Unfollow</button>");
-                    } else {
-                        out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Follow</button>");
+                    if(account.getAccID() != acc.getAccID()){
+                        out.println("<div class=\"search-result\">");
+                        out.println("<div class=\"row item-search\">");
+                        out.println("<div class=\"col-md-1\">");
+                        out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
+                        out.println("</div>");
+                        out.println("<div class=\"col-md-8\">");
+                        out.println("<h4><a class =\"username\" href=\"profile.jsp?accID="+account.getAccID()+"\">" + account.getUsername() + "</a></h4>");
+                        out.println("</div>");
+                        out.println("<div class=\"col-md-2\">");
+                        if (followCtrl.isFollow(acc.getAccID(), followID)) {
+                            out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Unfollow</button>");
+                        } else {
+                            out.println("<button id=\"follow-btn-"+followID+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + acc.getAccID() + "," + followID + ")\">Follow</button>");
+                        }
+                        out.println("</div>");
+                        out.println("</div>");
+                        out.println("</div>");
                     }
-                    out.println("</div>");
-                    out.println("</div>");
-                    out.println("</div>");
                 }
             }
             out.println("</div>");

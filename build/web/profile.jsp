@@ -80,9 +80,13 @@
                     <div class="row row-cols-3">
                         <%
                             for (Post post : posts) {
-                                out.print("<div class=\"col\">");
-                                out.print("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"rounded mx-auto d-block\" width=\"150\">");
-                                out.print("</div>");
+                                if(post.getImage().isEmpty()){
+                                    
+                                } else{
+                                    out.print("<div class=\"col\">");
+                                    out.print("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"rounded mx-auto d-block\" width=\"150\">");
+                                    out.print("</div>");
+                                }
                             }
                             out.print("<div class=\"col\">");
                             out.print("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"rounded mx-auto d-block\" width=\"150\">");
@@ -122,7 +126,11 @@
                             out.println("<div class=\"col-md-12 post-content\">");
                             out.println("<div class=\"post-container\">");
                             out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
-                            out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                            if(post.getImage().isEmpty()){
+                                
+                            } else{
+                                out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                            }
                             out.println("</div>");
                             out.println("</div>");
                             out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");

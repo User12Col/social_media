@@ -87,6 +87,9 @@
                                 out.print("<div class=\"media mb-3 media-container\">");
                                 out.print("<img src=\"./resources/img/"+accCmt.getImage()+"\" alt=\"Profile Picture\" class=\"profile-pic me-2\">");
                                 out.print("<span class=\"fw-bold\">"+accCmt.getUsername()+"</span>");
+                                out.print("<div>");
+                                out.print("<small>"+cmt.getDate()+"</small>");
+                                out.print("</div>");
                                 out.print("<div class=\"media-body\">");
                                 out.print("<p>" + cmt.getContent() + "</p>");
                                 out.print("</div>");

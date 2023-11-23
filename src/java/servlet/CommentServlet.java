@@ -7,6 +7,8 @@ package servlet;
 import controller.CommentController;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +34,9 @@ public class CommentServlet extends HttpServlet {
         int postID = Integer.parseInt(String.valueOf(session.getAttribute("postID")));
         int accID = acc.getAccID();
         String cmtContent = request.getParameter("cmtcontent");
+        String date = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
         
-        Comment cmt = new Comment(0, cmtContent, postID, accID);
+        Comment cmt = new Comment(0, cmtContent, postID, accID,date);
         CommentController cmtCtrl = new CommentController();
         if(cmtCtrl.addCmt(cmt)){
             request.getRequestDispatcher("/comment.jsp?postID="+postID).forward(request, response);

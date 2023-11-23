@@ -43,12 +43,6 @@ public class PostServlet extends HttpServlet {
         Part file = request.getPart("image");
         String imageFile = file.getSubmittedFileName();
         String uploadPath = getServletContext().getRealPath("/resources/img/") + imageFile;
-        /*FileOutputStream fos = new FileOutputStream(uploadPath);
-        InputStream is = file.getInputStream();
-        byte[] data = new byte[is.available()];
-        is.read(data);
-        fos.write(data);
-        fos.close();*/
         StoreUploadImage uploadImg = new StoreUploadImage();
         uploadImg.StoreImage(file, imageFile, uploadPath);
 
