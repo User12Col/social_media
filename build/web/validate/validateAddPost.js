@@ -1,4 +1,4 @@
-document.querySelector("form").addEventListener("submit", validateAddPost);
+document.querySelector(".container").addEventListener("submit", validateAddPost);
 
 function checkEmpty(input, event, element, message) {
     if (input.trim() === "") {

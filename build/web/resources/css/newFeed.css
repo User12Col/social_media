@@ -134,3 +134,8 @@
 .margin-header{
     margin-top: 90px;
 }
+
+.username{
+    text-decoration: none;
+    color: black;
+}

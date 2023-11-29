@@ -74,7 +74,7 @@
                         out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2 pic\">");
                         out.println("</div>");
                         out.println("<div class=\"col-md-10\">");
-                        out.println("<h5 class=\"fw-bold\">" + acc.getUsername() + "</h5>");
+                        out.println("<h5 class=\"fw-bold\"><a class =\"username\" href=\"profile.jsp?accID="+acc.getAccID()+"\">" + acc.getUsername() + "</a></h5>");
                         out.println("<small class=\"text-muted\">" + post.getDate() + "</small>");
                         out.println("</div>");
 
@@ -130,7 +130,7 @@
                     out.println("<img src=\"./resources/img/" + account.getImage() + "\" alt=\"User Profile\" class=\"profile-pic me-2 pic\">");
                     out.println("</div>");
                     out.println("<div class=\"col-md-10\">");
-                    out.println("<h5 class=\"fw-bold\">" + account.getUsername() + "</h5>");
+                    out.println("<h5 class=\"fw-bold\"><a class =\"username\" href=\"profile.jsp?accID="+account.getAccID()+"\">" + account.getUsername() + "</a></h5>");
                     out.println("<small class=\"text-muted\">" + post.getDate() + "</small>");
                     out.println("</div>");
 
@@ -143,6 +143,7 @@
                     out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
                     out.println("</div>");
                     out.println("</div>");
+                    out.println("<p id=\"like-post-"+post.getPostID()+"\">"+likeCtrl.getNumberOfLike(post.getPostID())+" Like</p>");
                     out.println("<p>" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
                     out.println("</div>");
 
@@ -200,44 +201,7 @@
 
         </div>
             
-            <script>
-                function likePost(accID, postID) {
-                    var button = document.getElementById("like-post-btn-"+postID);
-                    var text = document.getElementById("like-post-"+postID);
-                    
-                    var buttonText = button.textContent;
-                    var textLike = text.textContent;
-                    
-                    var parts = textLike.split(" ");
-                    var numberOfLike = Number(parts[0]);
-                    
-                    console.log(numberOfLike);
-                    
-                    if (buttonText === "Like") {
-                        $.ajax({
-                            type: "POST",
-                            url: "LikePostServlet",
-                            data: {accID: accID, postID: postID},
-                            success: function (data) {
-                                button.textContent = "Unlike";
-                                text.textContent = (numberOfLike + 1) +  " Like";
-                            }
-                        });
-                    } else if(buttonText === "Unlike"){
-                        $.ajax({
-                            type: "POST",
-                            url: "UnLikePostServlet",
-                            data: {accID: accID, postID: postID},
-                            success: function (data) {
-                                button.textContent = "Like";
-                                text.textContent = (numberOfLike - 1) + " Like";
-                            }
-                        });
-                    }
-
-                }
-            
-            </script>
+        <script src="./function/likeFunction.js"></script>
             
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>

@@ -63,34 +63,7 @@
         %>
 
 
-        <script>
-            function followUser(accID, followID) {
-                var button = document.getElementById("follow-btn-"+followID+"");
-                var buttonText = button.textContent;
-                if (buttonText === "Follow") {
-                    $.ajax({
-                        type: "POST",
-                        url: "FollowServlet",
-                        data: {accID: accID, followID: followID},
-                        success: function (data) {
-                            button.textContent = "Unfollow";
-                        }
-                    });
-                } else if(buttonText === "Unfollow"){
-                    $.ajax({
-                        type: "POST",
-                        url: "UnFollowServlet",
-                        data: {accID: accID, followID: followID},
-                        success: function (data) {
-
-                            button.textContent = "Follow";
-                        }
-                    });
-                }
-
-            }
-
-        </script>
+        <script src="./function/followFunction.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>

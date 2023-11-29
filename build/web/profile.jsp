@@ -1,5 +1,6 @@
 <%-- Document : profile Created on : Nov 14, 2023, 8:36:02 AM Author : HP ADMIN --%>
 
+<%@page import="controller.LikeController"%>
 <%@page import="controller.FollowingController"%>
 <%@page import="model.Account"%>
 <%@page import="controller.AccountController"%>
@@ -36,10 +37,12 @@
         %>
 
         <%
+            Account currAcc = (Account)session.getAttribute("account");
             int accId = Integer.parseInt(request.getParameter("accID"));
             PostController postCtrl = new PostController();
             AccountController accCtrl = new AccountController();
             CommentController cmtCtrl = new CommentController();
+            LikeController likeCtrl = new LikeController();
             FollowingController followCtrl = new FollowingController();
             List<Post> posts = postCtrl.getPosts(accId);
             Account acc = accCtrl.getAccountByID(accId);
@@ -71,6 +74,23 @@
 
                         <div class="row">
                             <h3><% out.print(acc.getBio()); %></h3>
+                        </div>
+                        
+                        <div class="row">
+                            <h3>
+                            <%
+                                if(currAcc.getAccID() == accId){
+                                    
+                                } else{
+                                    if (followCtrl.isFollow(currAcc.getAccID(), accId)) {
+                                        out.println("<button id=\"follow-btn-"+accId+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + currAcc.getAccID() + "," + accId + ")\">Unfollow</button>");
+                                    } else {
+                                        out.println("<button id=\"follow-btn-"+accId+"\" class=\"btn btn-outline-success btn-search\" onclick=\"followUser(" + currAcc.getAccID() + "," + accId + ")\">Follow</button>");
+                                    }
+                                }
+                                
+                            %>
+                            </h3>
                         </div>
                     </div>
 
@@ -104,7 +124,8 @@
             <div class="col-2"></div>
 
             <div class="col-8">
-                <%                    if (posts.isEmpty()) {
+                <%                    
+                    if (posts.isEmpty()) {
                         out.print("<h1 class=\"container\">No post</h1>");
                     } else {
                         for (Post post : posts) {
@@ -133,14 +154,19 @@
                             }
                             out.println("</div>");
                             out.println("</div>");
-                            out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
+                            out.println("<p id=\"like-post-"+post.getPostID()+"\">"+likeCtrl.getNumberOfLike(post.getPostID())+" Like</p>");
+                            out.println("<p>" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
                             out.println("</div>");
 
                             out.println("<div class=\"row\">");
                             out.println("<div class=\"col-md-12\">");
                             out.println("<div class=\"d-flex justify-content-between\">");
                             out.println("<div class=\"like-comment-share blueText\">");
-                            out.println("<i class=\"far ti-thumb-up\"></i> Like");
+                            if(likeCtrl.isLike(acc.getAccID(), post.getPostID())){
+                                out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Unlike</i>");
+                            } else{
+                                out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Like</i>");
+                            }
                             out.println("</div>");
                             out.println("<div class=\"like-comment-share\">");
                             out.println("<a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
@@ -162,6 +188,8 @@
 
         </div>
 
+        <script src="./function/likeFunction.js"></script>
+        <script src="./function/followFunction.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
