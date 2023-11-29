@@ -4,6 +4,7 @@
     Author     : HP ADMIN
 --%>
 
+<%@page import="controller.LikeController"%>
 <%@page import="controller.AdvertisementController"%>
 <%@page import="model.Advertisement"%>
 <%@page import="model.Following"%>
@@ -55,6 +56,7 @@
                 PostController postCtrl = new PostController();
                 AccountController accCtrl = new AccountController();
                 CommentController cmtCtrl = new CommentController();
+                LikeController likeCtrl = new LikeController();
                 List<Post> posts = postCtrl.getPosts(acc.getAccID());
                 List<Post> friendPosts = postCtrl.getPostsFriend(acc.getAccID());
                 if (posts.isEmpty()) {
@@ -89,14 +91,19 @@
                         }
                         out.println("</div>");
                         out.println("</div>");
-                        out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
+                        out.println("<p id=\"like-post-"+post.getPostID()+"\">"+likeCtrl.getNumberOfLike(post.getPostID())+" Like</p>");
+                        out.println("<p> " + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
                         out.println("</div>");
 
                         out.println("<div class=\"row\">");
                         out.println("<div class=\"col-md-12\">");
                         out.println("<div class=\"d-flex justify-content-between\">");
                         out.println("<div class=\"like-comment-share blueText\">");
-                        out.println("<i class=\"far ti-thumb-up\"></i> Like");
+                        if(likeCtrl.isLike(acc.getAccID(), post.getPostID())){
+                            out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Unlike</i>");
+                        } else{
+                            out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Like</i>");
+                        }
                         out.println("</div>");
                         out.println("<div class=\"like-comment-share\">");
                         out.println("<a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
@@ -136,14 +143,18 @@
                     out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
                     out.println("</div>");
                     out.println("</div>");
-                    out.println("<p class=\"post-content\">" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
+                    out.println("<p>" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
                     out.println("</div>");
 
                     out.println("<div class=\"row\">");
                     out.println("<div class=\"col-md-12\">");
                     out.println("<div class=\"d-flex justify-content-between\">");
                     out.println("<div class=\"like-comment-share blueText\">");
-                    out.println("<i class=\"ti-thumb-up blueText\"></i> Like");
+                    if(likeCtrl.isLike(acc.getAccID(), post.getPostID())){
+                        out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Unlike</i>");
+                    } else{
+                        out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Like</i>");
+                    }
                     out.println("</div>");
                     out.println("<div class=\"like-comment-share\">");
                     out.println("<i class=\"far fa-comment-alt\"></i><a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
@@ -188,6 +199,46 @@
             %>
 
         </div>
+            
+            <script>
+                function likePost(accID, postID) {
+                    var button = document.getElementById("like-post-btn-"+postID);
+                    var text = document.getElementById("like-post-"+postID);
+                    
+                    var buttonText = button.textContent;
+                    var textLike = text.textContent;
+                    
+                    var parts = textLike.split(" ");
+                    var numberOfLike = Number(parts[0]);
+                    
+                    console.log(numberOfLike);
+                    
+                    if (buttonText === "Like") {
+                        $.ajax({
+                            type: "POST",
+                            url: "LikePostServlet",
+                            data: {accID: accID, postID: postID},
+                            success: function (data) {
+                                button.textContent = "Unlike";
+                                text.textContent = (numberOfLike + 1) +  " Like";
+                            }
+                        });
+                    } else if(buttonText === "Unlike"){
+                        $.ajax({
+                            type: "POST",
+                            url: "UnLikePostServlet",
+                            data: {accID: accID, postID: postID},
+                            success: function (data) {
+                                button.textContent = "Like";
+                                text.textContent = (numberOfLike - 1) + " Like";
+                            }
+                        });
+                    }
+
+                }
+            
+            </script>
+            
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
