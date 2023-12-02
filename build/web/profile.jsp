@@ -154,8 +154,8 @@
                             }
                             out.println("</div>");
                             out.println("</div>");
-                            out.println("<p id=\"like-post-"+post.getPostID()+"\">"+likeCtrl.getNumberOfLike(post.getPostID())+" Like</p>");
-                            out.println("<p>" + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
+                            out.println("<p class=\"like-comment\" id=\"like-post-"+post.getPostID()+"\">"+likeCtrl.getNumberOfLike(post.getPostID())+" Like</p>");
+                            out.println("<p class=\"post-comment\"> " + cmtCtrl.countCmt(post.getPostID()) + " Comment</p>");
                             out.println("</div>");
 
                             out.println("<div class=\"row\">");
@@ -168,11 +168,11 @@
                                 out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Like</i>");
                             }
                             out.println("</div>");
-                            out.println("<div class=\"like-comment-share\">");
-                            out.println("<a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\">Comment</a>");
-                            out.println("</div>");
                             out.println("<div class=\"like-comment-share blueText\">");
-                            out.println("<i class=\"far ti-sharethis\"></i> Share");
+                                out.println("<i class=\"far ti-comment\"><a class = \"text-comment\" href = \"comment.jsp?postID=" + post.getPostID() + "\"> Comment</a></i>");
+                                out.println("</div>");
+                                out.println("<div class=\"like-comment-share blueText\">");
+                                out.println("<i class=\"ti-sharethis blueText\"> Share</i>");
                             out.println("</div>");
                             out.println("</div>");
                             out.println("</div>");

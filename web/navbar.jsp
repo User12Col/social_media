@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -38,7 +39,7 @@
                             <ul></ul>
                         </div>
                     </div>
-                    <div class="row text-center">
+                    <div class="row text-center profile-login">
                         <div class="col-md-4">
                             <%
                                 Account acc = (Account) session.getAttribute("account");

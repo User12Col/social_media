@@ -139,3 +139,42 @@
     text-decoration: none;
     color: black;
 }
+
+.ti-thumb-up{
+    display: block;
+    width: 70px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+}
+
+.backGround{
+    width: 100%;
+}
+
+.like-comment{
+    display: inline-block;
+    width: 50%;
+}
+
+.post-comment{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.ti-comment{
+    margin-right: 4px;
+    font-weight: bold !important;
+}
+
+.ti-comment a{
+    color: #43aaff!important;
+}
+
+.like-comment-share{
+    font-weight: bold !important;
+}
+
+body{
+    font-family: "Nunito", sans-serif;
+}
