@@ -10,3 +10,9 @@
 .media-container p{
     margin-left: 60px;
 }
+
+.cmt-date{
+    display: inline-block;
+    text-align: right;
+    width: 76%;
+}

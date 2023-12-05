@@ -59,7 +59,7 @@
                 LikeController likeCtrl = new LikeController();
                 List<Post> posts = postCtrl.getPosts(acc.getAccID());
                 List<Post> friendPosts = postCtrl.getPostsFriend(acc.getAccID());
-                if (posts.isEmpty()) {
+                if (posts.isEmpty() && friendPosts.isEmpty()) {
                     //out.print("<div class=\"container\">");
                     out.print("<img class=\"text-center\" src =\"./resources/img/nopost.png\" width = \"800\" height = \"150\">");
                     out.print("<h1 class=\"container\">No post in your account</h1>");
@@ -187,7 +187,7 @@
                         out.println("<img src=\"./resources/img/" + friend.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                         out.println("</div>");
                         out.println("<div class=\"col-4\">");
-                        out.println("<h4>" + friend.getUsername() + "</h4>");
+                        out.println("<h4 class=\"fw-bold\"><a class =\"username\" href=\"profile.jsp?accID="+friend.getAccID()+"\">" + friend.getUsername() + "</a></h4>");
                         out.println("</div>");
                         out.println("</div>");
                         out.println("</div>");

@@ -46,7 +46,7 @@
                                 if(acc == null){
                                     out.print("<div class=\"col-md-8\"><a class=\"btn btn-logout\" href=\"index.jsp\">Login</a></div>");
                                 } else{
-                                    out.println("<img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
+                                    out.println("<a class =\"username\" href=\"profile.jsp?accID="+acc.getAccID()+"\"><img src=\"./resources/img/" + acc.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\"></a>");
                                     out.print("</div>");
                                     out.print("<div class=\"col-md-8\"><form method=\"post\" action=\"LogOutSevlet\"><button class=\"btn btn-logout\" type=\"submit\">Log out</button></form></div>");
                                 }

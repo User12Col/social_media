@@ -69,7 +69,8 @@
                 </div>
             </div>
             <form class="input-group mb-3" method="post" action="CommentServlet">
-                <input type="text" class="form-control" name="cmtcontent" placeholder="Write a comment">
+                <input id="cmt" type="text" class="form-control" name="cmtcontent" placeholder="Write a comment">
+                </br><small id="cmt-error" class="text-danger"></small>
                 <button class="btn btn-primary" type="submit"><i class="ti-marker-alt"> </i></button>
             </form>
             <!-- Comment Section -->
@@ -87,7 +88,7 @@
                                 out.print("<div class=\"media mb-3 media-container\">");
                                 out.print("<img src=\"./resources/img/"+accCmt.getImage()+"\" alt=\"Profile Picture\" class=\"profile-pic me-2\">");
                                 out.print("<span class=\"fw-bold\">"+accCmt.getUsername()+"</span>");
-                                out.print("<div>");
+                                out.print("<div class=\"cmt-date\">");
                                 out.print("<small>"+cmt.getDate()+"</small>");
                                 out.print("</div>");
                                 out.print("<div class=\"media-body\">");
@@ -101,5 +102,6 @@
                 </div>
             </div>
         </div>
+        <script src="./validate/validateCmt.js"></script>
     </body>
 </html>

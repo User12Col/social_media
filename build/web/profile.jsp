@@ -126,7 +126,7 @@
             <div class="col-8">
                 <%                    
                     if (posts.isEmpty()) {
-                        out.print("<h1 class=\"container\">No post</h1>");
+
                     } else {
                         for (Post post : posts) {
                             out.println("<div class=\"container postcontainer\">");

@@ -60,7 +60,7 @@
                                 <div class="mb-3">
                                     <label for="exampleFormControlTextarea1" class="form-label">Upload your
                                         image</label>
-                                    <img src="./resources/img/user.png" id="imageDisplay" alt="Posted Image"
+                                    <img src="./resources/img/background.png" id="imageDisplay" alt="Posted Image"
                                         class="img-fluid">
                                     </br><input class="form-control" id="imageInput" name="image" type="file">
                                 </div>
