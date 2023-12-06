@@ -1,4 +1,4 @@
-document.querySelector("form").addEventListener("submit", validateEditProfile);
+document.querySelector(".container").addEventListener("submit", validateEditProfile);
 
 function checkEmpty(input, event, element, message) {
     if (input.trim() === "") {

@@ -55,12 +55,6 @@ public class UpdateProfileServlet extends HttpServlet {
         } else {
             image = imageFile;
             String uploadPath = getServletContext().getRealPath("/resources/img/") + imageFile;
-            /*FileOutputStream fos = new FileOutputStream(uploadPath);
-        InputStream is = file.getInputStream();
-        byte[] data = new byte[is.available()];
-        is.read(data);
-        fos.write(data);
-        fos.close();*/
             StoreUploadImage uploadImg = new StoreUploadImage();
             uploadImg.StoreImage(file, imageFile, uploadPath);
         }

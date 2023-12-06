@@ -140,7 +140,11 @@
                     out.println("<div class=\"col-md-12 post-content\">");
                     out.println("<div class=\"post-container\">");
                     out.println("<p class=\"post-content\">" + post.getCaption() + "</p>");
-                    out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                    if(post.getImage().isEmpty()){
+                    
+                    } else{
+                        out.println("<img src=\"./resources/img/" + post.getImage() + "\" alt=\"Posted Image\" class=\"img-fluid postimage\" width = \"400\" height = \"400\">");
+                    }
                     out.println("</div>");
                     out.println("</div>");
                     out.println("<p class=\"like-comment\" id=\"like-post-"+post.getPostID()+"\">"+likeCtrl.getNumberOfLike(post.getPostID())+" Like</p>");
@@ -187,7 +191,7 @@
                         out.println("<img src=\"./resources/img/" + friend.getImage() + "\" alt=\"User Profile\" class=\"profile-pic\">");
                         out.println("</div>");
                         out.println("<div class=\"col-4\">");
-                        out.println("<h4 class=\"fw-bold\"><a class =\"username\" href=\"profile.jsp?accID="+friend.getAccID()+"\">" + friend.getUsername() + "</a></h4>");
+                        out.println("<h5 class=\"fw-bold\"><a class =\"username\" href=\"profile.jsp?accID="+friend.getAccID()+"\">" + friend.getUsername() + "</a></h5>");
                         out.println("</div>");
                         out.println("</div>");
                         out.println("</div>");

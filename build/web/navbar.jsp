@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="editprofile.jsp">Edit Profile</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="changepassword.jsp">Change Password</a>
+                        </li>
                     </ul>
                     <div id="formSearch" class="d-flex navbar-nav me-auto mb-2 mb-lg-0" role="search">
                         <input class="form-control me-2 search" id="searchInput" type="search" placeholder="Looking for someone..." aria-label="Search">

@@ -68,7 +68,7 @@
                     %>
                 </div>
             </div>
-            <form class="input-group mb-3" method="post" action="CommentServlet">
+            <form class="cmt-form input-group mb-3" method="post" action="CommentServlet">
                 <input id="cmt" type="text" class="form-control" name="cmtcontent" placeholder="Write a comment">
                 </br><small id="cmt-error" class="text-danger"></small>
                 <button class="btn btn-primary" type="submit"><i class="ti-marker-alt"> </i></button>

@@ -1,4 +1,4 @@
-document.querySelector(".container").addEventListener("submit", validateCmt);
+document.querySelector(".cmt-form").addEventListener("submit", validateCmt);
 
 function checkEmpty(input, event, element, message) {
     if (input.trim() === "") {

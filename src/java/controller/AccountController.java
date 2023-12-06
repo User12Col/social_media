@@ -176,4 +176,34 @@ public class AccountController {
         return null;
 
     }
+    
+    public boolean checkPass(String password, int accID){
+        try {
+            String sql = "select * from ACCOUNT where AccID = "+accID+" and Password = '"+password+"'";
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            while(rs.next()){
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean changePassword(String newPassword, int accID){
+        try {
+            String sql = "update ACCOUNT set Password = ? where AccID = ?";
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setNString(1, newPassword);
+            stm.setInt(2, accID);
+            if(stm.executeUpdate() > 0){
+                return true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+        
+    }
 }
