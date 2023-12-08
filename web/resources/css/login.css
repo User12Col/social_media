@@ -40,3 +40,7 @@ body{
 .container input{
     border-radius: 20px;
 }
+
+.row{
+    margin-top: 10px;
+}

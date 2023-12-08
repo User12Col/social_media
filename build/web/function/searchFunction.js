@@ -1,27 +1,31 @@
-var isOn = false;
+
 var searchResults = document.getElementById("searchResults");
 searchResults.style.display = "none";
-// Bắt sự kiện ấn phím Enter trên trường nhập liệu
+
 document.getElementById("searchInput").addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-        var inputData = document.getElementById("searchInput").value;
+    var inputData = document.getElementById("searchInput").value;
+    if (event.key === "Enter" && inputData!="") {
         window.location.href = "FriendServlet?data=" + inputData;
     }
 });
 
 function searchUser() {
     var searchValue = document.getElementById("searchInput").value;
-    $.ajax({
-        type: "POST",
-        url: "SearchServlet",
-        data: { searchValue: searchValue },
-        success: function (data) {
-            displayResults(data);
-        }
-    });
+    if(searchValue!=""){
+        $.ajax({
+            type: "POST",
+            url: "SearchServlet",
+            data: { searchValue: searchValue },
+            success: function (data) {
+                displayResults(data);
+            }
+        });
+    }
+    
 }
 
 function displayResults(data) {
+    var isOn = false;
     var searchResults = document.getElementById("searchResults");
     if (!isOn) {
         searchResults.style.display = "block";

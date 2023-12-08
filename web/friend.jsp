@@ -55,6 +55,9 @@
                         out.println("</div>");
                         out.println("</div>");
                         out.println("</div>");
+                    } else{
+                        out.print("<img class=\"text-center\" src =\"./resources/img/nopost.png\" width = \"100%\" height = \"150\">");
+                        out.print("<h3 class=\"container text-center\">No result for '"+searchValue+ "'</h3>");
                     }
                 }
             }

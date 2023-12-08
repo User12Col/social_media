@@ -44,16 +44,16 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><% out.print("<input id=\"fullname\" type=\"text\" name=\"fullname\" class=\"form-control\" placeholder=\"Enter your full name\" value = \"" + user.getName() + "\">"); %></br><small id="fullname-error" class="text-danger"></small></div>
+                <div class="col-6"><% out.print("<input id=\"fullname\" type=\"text\" name=\"fullname\" class=\"form-control\" placeholder=\"Enter your full name\" value = \"" + user.getName() + "\">"); %><small id="fullname-error" class="text-danger"></small></br></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><% out.print("<input  id=\"email\" type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"name@example.com\" value = \"" + acc.getEmail() + "\">"); %></br><small id="email-error"  class="text-danger"></small></div>
+                <div class="col-6"><% out.print("<input  id=\"email\" type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"name@example.com\" value = \"" + acc.getEmail() + "\">"); %><small id="email-error"  class="text-danger"></small></br></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><% out.print("<input id=\"username\" type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Enter your user name\" value = \"" + acc.getUsername() + "\">"); %></br><small id="username-error"  class="text-danger"></small></div>
+                <div class="col-6"><% out.print("<input id=\"username\" type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Enter your user name\" value = \"" + acc.getUsername() + "\">"); %><small id="username-error"  class="text-danger"></small></br></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><% out.print("<input id=\"bio\" type=\"text\" name=\"bio\" class=\"form-control\" placeholder=\"Enter your bio\" value = \"" + acc.getBio() + "\">"); %></br><small id="bio-error"  class="text-danger"></small></div>
+                <div class="col-6"><% out.print("<input id=\"bio\" type=\"text\" name=\"bio\" class=\"form-control\" placeholder=\"Enter your bio\" value = \"" + acc.getBio() + "\">"); %><small id="bio-error"  class="text-danger"></small></br></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-6">
@@ -71,18 +71,8 @@
                 <div class="col-6">Date of birth</div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><% out.print("<input id=\"dob\" type=\"date\" name=\"dob\" class=\"form-control\" value = \"" + user.getDob() + "\">");%></br><small id="dob-error"  class="text-danger"></small></div>
+                <div class="col-6"><% out.print("<input id=\"dob\" type=\"date\" name=\"dob\" class=\"form-control\" value = \"" + user.getDob() + "\">");%><small id="dob-error"  class="text-danger"></small></br></div>
             </div>
-            <!--
-            <div class="row justify-content-center">
-                <div class="col-2"><label class="form-label">Password</label></div>
-                <div class="col-6"><input type="password" name="password" class="form-control" placeholder="Enter your password"></br></div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2"><label class="form-label">Password Again</label></div>
-                <div class="col-6"><input type="password" name="cfpassword" class="form-control" placeholder="Enter your password again"></br></div>
-            </div>
-            -->
             <div class = "row">
                 <div class="col"><h3>${message}</h3></br></div>
             </div>

@@ -12,7 +12,7 @@ function checkEmpty(input, event, element, message) {
 }
 
 function validateCmt(event){
-    var cmt = document.getElementById("cmt");
+    var cmt = document.getElementById("cmt").value;
     var cmtError = document.getElementById("cmt-error");
 
     checkEmpty(cmt, event, cmtError, "Write something before comment");

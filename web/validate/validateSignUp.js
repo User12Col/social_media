@@ -42,6 +42,19 @@ function checkMatchPassword(password, cfpassword, event, element, message){
     }
 }
 
+
+function checkDoB(input, event, element, message){
+    var date = new Date();
+    var currDay = date.getFullYear() +"-"+date.getMonth() +"-"+date.getDate();
+    if(input > currDay){
+        element.textContent = message;
+        event.preventDefault();
+        return false;
+    } else {
+        element.textContent = "";
+    }
+}
+
 function validateSignUp(event) {
     var fullname = document.getElementById("fullname").value;
     var email = document.getElementById("email").value;
@@ -66,6 +79,8 @@ function validateSignUp(event) {
     checkEmpty(password, event, passwordError, "Password is required");
 
     checkEmail(email, event, emailError, "Invalid email");
+
+    checkDoB(dob, event, dobError, "Invalid Day of birth");
 
     checkPasswordLength(password, event, passwordError, "Password must be at least 6 character");
     checkMatchPassword(password, cfpassword, event, cfpasswordError, "You password doesnt match");

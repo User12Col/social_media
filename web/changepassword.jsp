@@ -35,13 +35,13 @@
                 <h1>Change your password</h1></br>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><input id="curr-password" type="password" name="currpassword" class="form-control" placeholder="Enter your current password"></br><small id="currpassword-error" class="text-danger"></small></div>
+                <div class="col-6"><input id="curr-password" type="password" name="currpassword" class="form-control" placeholder="Enter your current password"><small id="currpassword-error" class="text-danger"></small></br></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><input id="new-password" type="password" name="newpassword" class="form-control" placeholder="Enter your new password"></br><small id="newpassword-error"  class="text-danger"></small></div>
+                <div class="col-6"><input id="new-password" type="password" name="newpassword" class="form-control" placeholder="Enter your new password"><small id="newpassword-error"  class="text-danger"></small></br></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-6"><input id="cf-new-password" type="password" name="cfnewpassword" class="form-control" placeholder="Enter your new password again"></br><small id="cfnewpassword-error"  class="text-danger"></small></div>
+                <div class="col-6"><input id="cf-new-password" type="password" name="cfnewpassword" class="form-control" placeholder="Enter your new password again"><small id="cfnewpassword-error"  class="text-danger"></small></br></div>
             </div>
             <div class = "row">
                 <div class="col"><h3>${message}</h3></br></div>

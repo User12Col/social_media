@@ -162,10 +162,10 @@
                             out.println("<div class=\"col-md-12\">");
                             out.println("<div class=\"d-flex justify-content-between\">");
                             out.println("<div class=\"like-comment-share blueText\">");
-                            if(likeCtrl.isLike(acc.getAccID(), post.getPostID())){
-                                out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Unlike</i>");
+                            if(likeCtrl.isLike(currAcc.getAccID(), post.getPostID())){
+                                out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+currAcc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Unlike</i>");
                             } else{
-                                out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+acc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Like</i>");
+                                out.println("<i id=\"like-post-btn-"+post.getPostID()+"\" onclick=\"likePost("+currAcc.getAccID()+","+post.getPostID()+")\" class=\"far ti-thumb-up\" >Like</i>");
                             }
                             out.println("</div>");
                             out.println("<div class=\"like-comment-share blueText\">");
